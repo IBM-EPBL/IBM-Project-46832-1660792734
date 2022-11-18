@@ -17,7 +17,7 @@ flask , ibm_db , pyjwt , requests , trycourier
 - [x] Verification
 ## Screenshots
 
-![App Screenshot](./screenshot/register.png)
-![App Screenshot](./screenshot/login.png)
-![App Screenshot](./screenshot/mail.png)
+![App Screenshot](/screenshot/register.png)
+![App Screenshot](/screenshot/login.png)
+![App Screenshot](/screenshot/mail.png)
 
