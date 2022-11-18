@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+
+  <!-- tailwindcss -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+
+<style>
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  p,
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<body class="bg-zinc-900 text-white">
+  <div class="w-full h-full flex flex-row justify-center items-center">
+
+    <div class="flex flex-col items-center max-w-xl w-full m-5">
+      {% if msg %}
+      <p class="text-lg text-red-500">{{ msg }}</p>
+      {% endif %}
+  
+      <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="login">login? click here</a>
+      <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="register">register? click here</a>
+      <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="/main">Go to home page?</a>
+    </div>
+  </div>
+</body>
+
+</html>

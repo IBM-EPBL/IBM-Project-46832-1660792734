@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+  rel="stylesheet"
+/>
+  </head>
+    <!-- Start your project here-->
+      <style>
+        html,
+      body {
+    padding: 20;
+    margin: 0;
+  }
+        .background-radial-gradient {
+          background-color: hsl(220, 72%, 15%);
+          background-image: radial-gradient(650px circle at 0% 0%,
+              hsl(218, 41%, 35%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%),
+            radial-gradient(1250px circle at 100% 100%,
+              hsl(218, 41%, 45%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%);
+        }
+    
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+    
+        .bg-glass {
+          background-color: hsla(0, 7%, 97%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+      </style>
+      <section class="background-radial-gradient overflow-hidden">
+      <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row  mb-10">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+              Nutrition <br />
+              <span style="color: hsl(218, 81%, 75%)">Assistant Application</span>
+            </h1>
+            <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+            Nutrition Assistant Uses Spoonacular API to provide information About the application
+            nutrients present in the food . Register Now to use out platform.
+            </p>
+          </div>
+    
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+    
+            <div class="card bg-glass">
+              <div class="card-body px-4 py-5 px-md-5">
+                <p class="fw-bolder fs-2">Sign Up</p>
+                <form method="post">
+                  <div class="form-outline mb-4">
+                    <input type="text" name="name" class="form-control" />
+                    <label class="form-label" for="form3Example3">Full Name</label>
+                  </div>
+    
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input type="email" name="email" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                  </div>
+    
+                  <!-- Password input -->
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="password" name="password" class="form-control" />
+                        <label class="form-label" for="form3Example4">Password</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input type="text" name="retyped_password" class="form-control" />
+                        <label class="form-label" for="form3Example1">Retype Password</label>
+                      </div>
+                    </div>
+                  </div>
+                  {% if error %}
+                  <p class="mb-3 text-red-500">{{ error }}</p>
+                  {% endif %}
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4">
+                    Sign up
+                  </button>
+                  <div class="mb-3" style="display: flex; justify-content: center;">
+                    <a href="login">login? click here</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End your project here-->
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+></script>
+  </body>
+</html>
