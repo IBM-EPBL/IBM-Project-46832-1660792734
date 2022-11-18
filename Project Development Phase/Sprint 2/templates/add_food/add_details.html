@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block mainBody %}
+
+<div class="w-full h-full flex flex-row justify-center items-center">
+
+  <form method="post" class="flex flex-col items-center max-w-xl w-full m-5">
+    
+    <h1 class="mb-5 text-2xl font-bold">Food details!</h1>
+
+    <p class="mb-3 w-full font-bold text-slate-50">Food name</p>
+    <input type="text" name="food_name" value="{{ name }}" required class="bg-surfaceVariant rounded-sm block w-full p-3 bg-slate-50 mb-3" />
+    <p class="mb-3 w-full font-bold text-slate-50">Calories (calories)</p>
+    <input type="number" name="calories" min="1" max="99999" step=0.0001 value="{{ calories }}" required class="bg-surfaceVariant rounded-sm block w-full p-3 bg-slate-50 mb-3 shadow-2xl" />
+    <p class="mb-3 w-full font-bold text-slate-50">Fats (g)</p>  
+    <input type="number" name="fat" min="1" max="99999" step=0.0001 value="{{ fat }}" required class="bg-surfaceVariant rounded-sm block w-full p-3 bg-slate-50 mb-3 shadow-2xl" />
+    <p class="mb-3 w-full font-bold text-slate-50">Protein (g)</p>
+    <input type="number" name="protein" min="1" max="99999" step=0.0001 value="{{ protein }}" required class="bg-surfaceVariant rounded-sm block w-full p-3 bg-slate-50 mb-3 shadow-2xl" />
+    <p class="mb-3 w-full font-bold text-slate-50">Carbs (g)</p>  
+    <input type="number" name="carbs" min="1" max="99999" step=0.0001 value="{{ carbs }}" required class="bg-surfaceVariant rounded-sm block w-full p-3 bg-slate-50 mb-3 shadow-2xl" />
+
+    {% if error %}
+    <p class="text-red-500">{{ error }}</p>    
+    {% endif %}
+
+    <button type="submit" class="py-2 px-4 mt-4 bg-zinc-800 text-slate-50 hover:bg-slate-50 rounded-lg w-full hover:text-black hover:shadow-lg transition duration-300 ease-in-out text-center ">Continue</button>
+
+  </form>
+
+</div>
+
+
+{% endblock %}

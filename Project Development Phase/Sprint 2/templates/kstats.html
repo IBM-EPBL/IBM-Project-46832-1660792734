@@ -1,0 +1,153 @@
+{% extends 'main.html' %}
+
+{% block mainBody %}
+
+<p class="text-xl font-bold w-full text-center my-10">Stats</p>
+
+<p class="text-pink-500 font-bold text-lg text-center mb-5">Averages</p>
+
+<div class="flex flex-row flex-wrap justify-center items-center">
+  <div class="p-3">
+    <div class="flex flex-col items-center justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+      <p class="text-pink-500 font-bold text-lg">Calories</p>
+      <p>{{ calories }} calories</p>
+    </div>
+  </div>
+
+  <div class="p-3">
+    <div class="flex flex-col items-center justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+      <p class="text-pink-500 font-bold text-lg">Fats</p>
+      <p>{{ fat }} g</p>
+    </div>
+  </div>
+
+  <div class="p-3">
+    <div class="flex flex-col items-center justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+      <p class="text-pink-500 font-bold text-lg">Protein</p>
+      <p>{{ protein }} g</p>
+    </div>
+  </div>
+
+  <div class="p-3">
+    <div class="flex flex-col items-center justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+      <p class="text-pink-500 font-bold text-lg">Carbs</p>
+      <p>{{ carbs }} g</p>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="flex flex-col flex-wrap justify-center items-center mt-2">
+  
+  <p class="text-pink-500 font-bold text-lg mt-5">Calories Chart</p>
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5">
+    <canvas class="p-3" id="calories_chart" style="width:60vw;"></canvas>
+  </div>
+
+  <p class="text-pink-500 font-bold text-lg mt-5">Fats Chart</p>
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5">
+    <canvas class="p-3" id="fats_chart" style="width:60vw;"></canvas>
+  </div>
+
+  <p class="text-pink-500 font-bold text-lg mt-5">Protein Chart</p>
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5">
+    <canvas class="p-3" id="protein_chart" style="width:60vw;"></canvas>
+  </div>
+
+  <p class="text-pink-500 font-bold text-lg mt-5">Carbs Chart</p>
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5">
+    <canvas class="p-3" id="carbs_chart" style="width:60vw;"></canvas>
+  </div>
+
+</div>
+
+
+<script>
+  var time_x_values = {{ time_arr | tojson }};
+  
+  var calories_values = {{ calories_arr | tojson }};
+  var fat_values = {{ fat_arr | tojson }};
+  var protein_values = {{ protein_arr | tojson }};
+  var carbs_values = {{ carbs_arr | tojson }};
+
+  new Chart("calories_chart", {
+    type: "bar",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "calories",
+        backgroundColor: "red",
+        data: calories_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "calories chart"
+      }
+    }
+  });
+
+  new Chart("fats_chart", {
+    type: "bar",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "orange",
+        data: fat_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "fats chart"
+      }
+    }
+  });
+
+  new Chart("protein_chart", {
+    type: "bar",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "yellow",
+        data: protein_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "protein chart"
+      }
+    }
+  });
+
+  new Chart("carbs_chart", {
+    type: "bar",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "blue",
+        data: carbs_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "carbs chart"
+      }
+    }
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block mainBody %}
+
+<p class="text-slate-50 text-xl font-bold w-full text-center my-10">Previous Foods</p>
+
+<div class="flex flex-col items-center">
+  {% if nd_len != 0 %}
+
+  {%for n_detail in nutrition_details %}
+  <div class="p-3 w-full max-w-xl">
+    <div class="flex flex-col items-start justify-center bg-cyan-900 rounded-lg p-3 w-full max-w-xl shadow-2xl">
+      <div class="flex mb-4 justify-between items-center w-full">
+        <p class="text-xl font-bold text-slate-50">{{ n_detail['name'] }}</p>
+        <p class="text-lg text-slate-50 ">{{ n_detail['time'] }}</p>
+      </div>
+      <p class="text-slate-50"><span class="text-red-500 font-bold">Calories:</span> {{ n_detail['calories'] }} calories</p>
+      <p class="text-slate-50"><span class="text-red-500 font-bold">Fats:</span> {{ n_detail['fat'] }} g</p>
+      <p class="text-slate-50"><span class="text-red-500 font-bold">Protein:</span> {{ n_detail['protein'] }} g</p>
+      <p class="text-slate-50"><span class="text-red-500 font-bold">Carbs:</span> {{ n_detail['carbs'] }} g</p>
+    </div>
+  </div>
+  {%endfor%}
+
+  {% else %}
+  <p class="text-slate-50 text-xl text-center font-bold w-full my-10">No Records Yet </p>
+  {% endif %}
+</div>
+
+{% endblock %}

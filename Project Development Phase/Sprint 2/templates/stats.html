@@ -1,0 +1,122 @@
+{% extends 'main.html' %}
+
+{% block mainBody %}
+
+<p class="text-xl text-slate-50 font-bold w-full text-center my-5">STATS</p>
+</div>
+
+<div class="grid grid-cols-2 gap-2 flex flex-col flex-wrap justify-center items-center mt-2" style="  padding-right: 50px; padding-left: 50px; padding-bottom: 30px;">
+  
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5 shadow-2xl">
+    <p class="text-slate-50 font-bold text-lg">Calories Chart [ {{ calories }} g ]</p>
+    <canvas class="p-3" id="calories_chart" style="width:60vw;"></canvas>
+  </div>
+  
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5 shadow-2xl">
+    <p class="text-slate-50 font-bold text-lg">Fats Chart [ {{ fat }} g ]</p>
+    <canvas class="p-3" id="fats_chart" style="width:60vw;"></canvas>
+  </div>
+
+  
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5 shadow-2xl">
+    <p class="text-slate-50 font-bold text-lg">Protein Chart [ {{ protein }} g ]</p>
+    <canvas class="p-3" id="protein_chart" style="width:60vw;"></canvas>
+  </div>
+
+
+  <div class="bg-zinc-800 rounded-lg p-3 mt-5 shadow-2xl">
+    <p class="text-slate-50 font-bold text-lg">Carbs Chart [ {{ carbs }} g ]</p>
+    <canvas class="p-3" id="carbs_chart" style="width:60vw;"></canvas>
+  </div>
+
+</div>
+
+
+<script>
+  var time_x_values = {{ time_arr | tojson }};
+  
+  var calories_values = {{ calories_arr | tojson }};
+  var fat_values = {{ fat_arr | tojson }};
+  var protein_values = {{ protein_arr | tojson }};
+  var carbs_values = {{ carbs_arr | tojson }};
+
+  new Chart("calories_chart", {
+    type: "line",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "calories",
+        backgroundColor: "red",
+        borderColor:"red",
+        data: calories_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "calories chart"
+      }
+    }
+  });
+
+  new Chart("fats_chart", {
+    type: "line",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "red",
+        borderColor:"red",
+        data: fat_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "fats chart"
+      }
+    }
+  });
+
+  new Chart("protein_chart", {
+    type: "line",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "red",borderColor:"red",
+        data: protein_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "protein chart"
+      }
+    }
+  });
+
+  new Chart("carbs_chart", {
+    type: "line",
+    data: {
+      labels: time_x_values,
+      datasets: [{
+        label: "g",
+        backgroundColor: "red",borderColor:"red",
+        data: carbs_values
+      }]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: "carbs chart"
+      }
+    }
+  });
+</script>
+
+{% endblock %}
