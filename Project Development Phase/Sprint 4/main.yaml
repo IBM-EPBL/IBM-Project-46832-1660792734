@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-deploy
+  namespace: nutri
+  labels:
+    app: main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main
+  template:
+    metadata:
+      labels:
+        app: main
+    spec:
+      containers:
+      - name: main
+        image: adhwaith2chandran/main
+        ports:
+        - containerPort: 5000
+        env:
+        - name: SERVER_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: SERVER_SECRET
+        - name: AUTH_SERVER_URL
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: AUTH_SERVER_URL
+        - name: AUTH_SERVER_REDIRECT_URL
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: AUTH_SERVER_REDIRECT_URL      
+        - name: SPOONACULAR_BASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: SPOONACULAR_BASE_URL
+        - name: SPOONACULAR_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: SPOONACULAR_API_KEY              
+        - name: DB2_URL
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: DB2_URL
+        - name: COS_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: COS_ENDPOINT
+        - name: COS_API_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: COS_API_KEY_ID
+        - name: COS_INSTANCE_CRN
+          valueFrom:
+            secretKeyRef:
+              name: main-secret
+              key: COS_INSTANCE_CRN
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: main-service
+  namespace: nutri
+spec:
+  selector:
+    app: main
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000

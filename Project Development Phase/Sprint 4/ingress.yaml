@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+  name: naa-ingress
+  namespace: nutri
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /auth(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: auth-service
+            port: 
+              number: 5000
+      - path: /main(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: main-service
+            port: 
+              number: 5000

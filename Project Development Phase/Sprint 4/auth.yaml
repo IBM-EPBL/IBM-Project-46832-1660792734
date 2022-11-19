@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deploy
+  namespace: nutri
+  labels:
+    app: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: auth
+        image: adhwaith2chandran/auth
+        ports:
+        - containerPort: 5000
+        env:
+        - name: SERVER_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: auth-secret
+              key: SERVER_SECRET
+        - name: DB2_URL
+          valueFrom:
+            secretKeyRef:
+              name: auth-secret
+              key: DB2_URL
+        - name: COURIER_AUTH_KEY
+          valueFrom:
+            secretKeyRef:
+              name: auth-secret
+              key: COURIER_AUTH_KEY
+        - name: MAIN_SERVER_REDIRECT_URL
+          valueFrom:
+            secretKeyRef:
+              name: auth-secret
+              key: MAIN_SERVER_REDIRECT_URL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: nutri
+  name: auth-service
+spec:
+  selector:
+    app: auth
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
