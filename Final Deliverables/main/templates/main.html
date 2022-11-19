@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="grid grid-cols-4 flex flex-wrap justify-center">
+  <a class="py-2 px-4 bg-cyan-800 text-slate-50 hover:bg-slate-50  w-full hover:text-black hover:shadow-lg transition duration-300 ease-in-out text-center " href="my_history">History</a>
+  <a class="py-2 px-4 bg-cyan-800 text-slate-50 hover:bg-slate-50  w-full hover:text-black hover:shadow-lg transition duration-300 ease-in-out text-center " href="stats">Stats</a>
+  <a class="py-2 px-4 bg-cyan-800 text-slate-50 hover:bg-slate-50  w-full hover:text-black hover:shadow-lg transition duration-300 ease-in-out text-center " href="add_food">Identify Nutrients By Image</a>
+  <a class="py-2 px-4 bg-cyan-800 text-slate-50 hover:bg-slate-50  w-full hover:text-black hover:shadow-lg transition duration-300 ease-in-out text-center " href="logout">logout</a>
+</div>
+
+{% block mainBody %} {% endblock %}
+
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "c64ed384-15a2-41cf-b40e-d2381cd61584", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "9d394aeb-9197-403a-90c4-5bf41943077e", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script
+
+{% endblock %}

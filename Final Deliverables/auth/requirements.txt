@@ -1,0 +1,5 @@
+flask
+ibm_db
+pyjwt
+requests
+trycourier

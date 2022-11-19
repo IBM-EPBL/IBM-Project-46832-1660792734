@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<div class="w-full h-full flex flex-row justify-center items-center">
+
+  <div class="flex flex-col items-center max-w-xl w-full m-5">
+    {% if msg %}
+    <p class="text-lg">{{ msg }}</p>
+    {% endif %}
+
+    <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="login">login? click here</a>
+    <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="register">register? click here</a>
+    <a class="py-2 px-4 mt-4 bg-zinc-800 hover:bg-violet-500 rounded-lg text-center" href="/main">Go to home page?</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+flask
+ibm_db
+ibm-cos-sdk
+pyjwt
+requests
+trycourier
