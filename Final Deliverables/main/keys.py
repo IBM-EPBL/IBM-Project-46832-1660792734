@@ -1,6 +1,6 @@
 
 SERVER_SECRET = 'a'
-AUTH_SERVER_URL = 'http://auth-service:500/'
+AUTH_SERVER_URL = 'http://auth-service:5000/'
 AUTH_SERVER_REDIRECT_URL = '/auth/'
 
 # API
