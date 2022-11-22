@@ -1,15 +1,16 @@
+import os
 
-SERVER_SECRET = 'a'
-AUTH_SERVER_URL = 'http://auth-service:5000/'
-AUTH_SERVER_REDIRECT_URL = '/auth/'
+SERVER_SECRET = os.environ['SERVER_SECRET']
+AUTH_SERVER_URL = os.environ['AUTH_SERVER_URL']
+AUTH_SERVER_REDIRECT_URL = os.environ['AUTH_SERVER_REDIRECT_URL']
 
 # API
-SPOONACULAR_BASE_URL = "https://api.spoonacular.com/"
-SPOONACULAR_API_KEY = '2fd2334422db49928ff833cf3ab5d110'
+SPOONACULAR_BASE_URL = os.environ['SPOONACULAR_BASE_URL']
+SPOONACULAR_API_KEY = os.environ['SPOONACULAR_API_KEY']
 
 # IBM
-DB2_URL = "DATABASE=bludb;HOSTNAME=125f9f61-9715-46f9-9399-c8177b21803b.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=30426;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA.crt;UID=yxq64192;PWD=J6uBIyggefYW1Z2t"
-COS_ENDPOINT = "https://s3.jp-tok.cloud-object-storage.appdomain.cloud"
-COS_API_KEY_ID =  'd3yb1QkN8sOB53NkiUGoV-IZ53nD0xjdYfsGxjHtLFqb'
-COS_INSTANCE_CRN = 'crn:v1:bluemix:public:cloud-object-storage:global:a/3af014c0d4884e5dbe400e3d575c714a:ae39da8d-02f0-499d-83e5-063572d2c3ef:bucket:nutriimg'
+DB2_URL = os.environ['DB2_URL']
+COS_ENDPOINT = os.environ['COS_ENDPOINT']
+COS_API_KEY_ID =  os.environ['COS_API_KEY_ID']
+COS_INSTANCE_CRN = os.environ['COS_INSTANCE_CRN']
 
