@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  name: naa-ingress
+  name: nutri-ingress
   namespace: nutri
 spec:
   ingressClassName: nginx
