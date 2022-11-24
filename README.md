@@ -4,9 +4,9 @@
 ## Team ID : PNT2022TMID31561
 
 ### 711719104007 : Adhwaith Chandran -Team Lead
-### 711719104042 : Keerthana m s
-### 711719104053 : Nandhini s s
-### 711719104041 : Kavyabala s b 
+### 711719104042 : Keerthana M S
+### 711719104053 : Nandhini S S
+### 711719104041 : Kavyabala S B 
 
 Link for working model:
 
